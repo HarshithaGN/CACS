@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1769095463710,
+    "description" : "Initial flow with Process groups to test versioning of flow",
+    "identifier" : "Initial-flow-with-Process-groups",
+    "lastModifiedTimestamp" : 1769095463710,
+    "name" : "Initial flow with Process groups",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
