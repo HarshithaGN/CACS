@@ -19,25 +19,26 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "d3d8db4d-c43f-3593-b90b-33564b112964",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
+        "id" : "dafb698a-a950-30f0-9c44-86d7c2cc04de",
+        "name" : "UpdateAttribute",
+        "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "859d21c5-eccf-392a-a196-016e95c85fb1",
+      "identifier" : "1ef47f47-06d7-3cc2-94b0-dd1663126a80",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "" ],
+      "selectedRelationships" : [ "success" ],
       "source" : {
+        "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "ccd795e6-32e2-3d8b-8c22-eb1b27e7bc9f",
-        "name" : "connect2",
-        "type" : "INPUT_PORT"
+        "id" : "19bde7c1-c9ca-3d43-83eb-1ff103c99bae",
+        "name" : "GenerateFlowFile",
+        "type" : "PROCESSOR"
       },
       "zIndex" : 1
     } ],
@@ -49,31 +50,9 @@
     "externalControllerServiceReferences" : { },
     "flowFileConcurrency" : "UNBOUNDED",
     "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
-    "funnels" : [ {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "d3d8db4d-c43f-3593-b90b-33564b112964",
-      "position" : {
-        "x" : 386.0,
-        "y" : -53.16667175292969
-      }
-    } ],
+    "funnels" : [ ],
     "identifier" : "flow-contents-group",
-    "inputPorts" : [ {
-      "allowRemoteAccess" : false,
-      "componentType" : "INPUT_PORT",
-      "concurrentlySchedulableTaskCount" : 1,
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ccd795e6-32e2-3d8b-8c22-eb1b27e7bc9f",
-      "name" : "connect2",
-      "portFunction" : "STANDARD",
-      "position" : {
-        "x" : -22.0,
-        "y" : -80.16667175292969
-      },
-      "scheduledState" : "ENABLED",
-      "type" : "INPUT_PORT"
-    } ],
+    "inputPorts" : [ ],
     "labels" : [ ],
     "maxConcurrentTasks" : 1,
     "name" : "flow2",
@@ -83,7 +62,177 @@
       "y" : 0.0
     },
     "processGroups" : [ ],
-    "processors" : [ ],
+    "processors" : [ {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.7.2"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "19bde7c1-c9ca-3d43-83eb-1ff103c99bae",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "GenerateFlowFile",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -16.0,
+        "y" : 64.0
+      },
+      "properties" : {
+        "File Size" : "0B",
+        "Batch Size" : "1",
+        "Unique FlowFiles" : "false",
+        "Character Set" : "UTF-8",
+        "Data Format" : "Text"
+      },
+      "propertyDescriptors" : {
+        "File Size" : {
+          "displayName" : "File Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "File Size",
+          "sensitive" : false
+        },
+        "Batch Size" : {
+          "displayName" : "Batch Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Batch Size",
+          "sensitive" : false
+        },
+        "Unique FlowFiles" : {
+          "displayName" : "Unique FlowFiles",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Unique FlowFiles",
+          "sensitive" : false
+        },
+        "Mime Type" : {
+          "displayName" : "Mime Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Mime Type",
+          "sensitive" : false
+        },
+        "Custom Text" : {
+          "displayName" : "Custom Text",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Custom Text",
+          "sensitive" : false
+        },
+        "Character Set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Character Set",
+          "sensitive" : false
+        },
+        "Data Format" : {
+          "displayName" : "Data Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Data Format",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "1 min",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.GenerateFlowFile",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-update-attribute-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.7.2"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "dafb698a-a950-30f0-9c44-86d7c2cc04de",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "UpdateAttribute",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -16.0,
+        "y" : 328.0
+      },
+      "properties" : {
+        "filename" : "FILENAME_B",
+        "Store State" : "Do not store state",
+        "Cache Value Lookup Cache Size" : "100",
+        "timestamp" : "${now():format('yyyy-MM-dd HH:mm:ss')}"
+      },
+      "propertyDescriptors" : {
+        "Delete Attributes Expression" : {
+          "displayName" : "Delete Attributes Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Delete Attributes Expression",
+          "sensitive" : false
+        },
+        "filename" : {
+          "displayName" : "filename",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "filename",
+          "sensitive" : false
+        },
+        "Store State" : {
+          "displayName" : "Store State",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Store State",
+          "sensitive" : false
+        },
+        "Cache Value Lookup Cache Size" : {
+          "displayName" : "Cache Value Lookup Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Cache Value Lookup Cache Size",
+          "sensitive" : false
+        },
+        "Stateful Variables Initial Value" : {
+          "displayName" : "Stateful Variables Initial Value",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Stateful Variables Initial Value",
+          "sensitive" : false
+        },
+        "timestamp" : {
+          "displayName" : "timestamp",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "timestamp",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
+      "yieldDuration" : "1 sec"
+    } ],
     "remoteProcessGroups" : [ ],
     "scheduledState" : "ENABLED",
     "statelessFlowTimeout" : "1 min"
@@ -95,6 +244,6 @@
   "snapshotMetadata" : {
     "author" : "3295da8b-1af3-448b-9da4-71abafbec532",
     "flowIdentifier" : "Flow2",
-    "timestamp" : 1769582631631
+    "timestamp" : 1769585932338
   }
 }
